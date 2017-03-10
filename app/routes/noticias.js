@@ -1,22 +1,15 @@
+var dbConnection = require('../../config/dbConnection');
+
 module.exports = function(app){
+
+	var connection = dbConnection();
 
 	app.get('/noticias', function(req, res){
 
-		var mysql = require('mysql');
-
-		var connection = mysql.createConnection({
-			host : 'localhost',
-			user : 'root',
-			password : '',
-			datebase : 'noticias'
-		});
-
 		connection.query('SELECT * FROM tb_noticias', function(error, result){
-			res.send(result);
+			// Vai enviar um JSON para a view Noticias
+			res.render("noticias/noticias", {noticias : result});
 		});
-
-		//res.render('noticias/noticias');
-
 	});
 
 }
