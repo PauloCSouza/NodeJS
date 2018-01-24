@@ -1,12 +1,16 @@
 var mysql = require('mysql');
 
-module.exports = function () {
-
+var conMySQL = function() {
 	return mysql.createConnection({
 		host : 'localhost',
-		user : 'root',
-		password : '',
-		datebase : 'noticias'
-	});
+		user : 'teste',
+		password : 'teste',
+		database : 'test'
+	});	
+}
+
+module.exports = function () {
+
+	return conMySQL;
 
 }
