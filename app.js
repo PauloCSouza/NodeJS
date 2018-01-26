@@ -11,4 +11,5 @@ npm install ejs --save
 npm install -g nodemon
 npm install mysql --save
 npm install consign --save
+npm install body-parser --save
 */
