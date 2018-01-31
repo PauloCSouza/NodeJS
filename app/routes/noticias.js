@@ -1,14 +1,14 @@
-module.exports = function(app){
+module.exports = function(application){
 
-	app.get('/noticias', function(req, res){
+	application.get('/noticias', function(req, res){
 
-		var connection = app.config.dbConnection();
-		var noticiasModel = new app.app.models.Noticias(connection);
+		application.app.controllers.noticias.noticias(application, req, res);
 
-		noticiasModel.getNoticias(function(error, result){
-			// Vai enviar um JSON para a view Noticias
-			res.render("noticias/noticias", {noticias : result});
-		});
+	});
+
+	application.get('/noticia', function(req, res){
+
+		application.app.controllers.noticias.noticia(application, req, res);
 
 	});
 
