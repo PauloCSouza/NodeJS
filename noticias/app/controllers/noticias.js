@@ -14,7 +14,9 @@ module.exports.noticia = function(application, req, res) {
 	var connection = application.config.dbConnection();
 	var noticiasModel = new application.app.models.Noticias(connection);
 
-	noticiasModel.getNoticia(function(error, result){
+	var idnoticia = req.query;
+
+	noticiasModel.getNoticia(idnoticia, function(error, result){
 		res.render("noticias/noticia", {noticia : result});
 	});
 

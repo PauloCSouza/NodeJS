@@ -6,13 +6,13 @@ function Noticias(connection) {
 
 Noticias.prototype.getNoticias = function(callback) {
 
-	this._connection.query('SELECT * FROM tb_noticias', callback);
+	this._connection.query('SELECT * FROM tb_noticias ORDER BY dtcadastro DESC', callback);
 
 }
 
-Noticias.prototype.getNoticia = function(callback) {
+Noticias.prototype.getNoticia = function(idnoticia, callback) {
 
-	this._connection.query('SELECT * FROM tb_noticias WHERE idnoticia = 1', callback);
+	this._connection.query('SELECT * FROM tb_noticias WHERE idnoticia = ' + idnoticia.idnoticia, callback);
 
 }
 

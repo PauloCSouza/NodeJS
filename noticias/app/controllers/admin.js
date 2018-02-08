@@ -8,6 +8,8 @@ module.exports.noticias_salvar = function(application, req, res) {
 
 	var noticia = req.body;
 
+	console.log(noticia);
+	
 	req.assert('destitulo','Título é obrigatório').notEmpty();
 	req.assert('desresumo','Resumo é obrigatório').notEmpty();
 	req.assert('desresumo','Resumo deve conter entre 10 e 100 caracteres').len(10, 100);
